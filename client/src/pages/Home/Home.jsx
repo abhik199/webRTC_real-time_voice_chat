@@ -12,7 +12,7 @@ const Home = () => {
   };
   const history = useNavigate();
   function startRegister() {
-    history("/register");
+    history("/authenticate");
   }
   return (
     <div className={styles.cardWrapper}>
@@ -23,13 +23,10 @@ const Home = () => {
           nothing breaker
         </p>
         <div>
-          <Button onClick={startRegister} text={"Get your username"}></Button>
+          <Button onClick={startRegister} text={"Let's Go"}></Button>
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
-          <Link style={singInLinkStyle} to={"/login"}>
-            Sign in
-          </Link>
         </div>
       </Card>
     </div>
