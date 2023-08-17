@@ -4,7 +4,7 @@ import Button from "../../../../components/shared/Button/Button";
 import TextInput from "../../../../components/shared/TextInput/TextInput";
 import style from "../StepEmail.module.css";
 
-const Email = () => {
+const Email = ({ onNext }) => {
   const [email, setEmail] = useState("");
   return (
     <>
@@ -13,7 +13,7 @@ const Email = () => {
         <div>
           <div className={style.actionButtonWrap}>
             <div>
-              <Button text="Next"></Button>
+              <Button text="Next" onClick={onNext}></Button>
             </div>
             <p className={style.bottomParagraph}>
               By entering your number, you're agreeing to our Term of Service
