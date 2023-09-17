@@ -13,7 +13,7 @@ class ActivateController {
 
     // Image Base64
     const buffer = Buffer.from(
-      avatar.replace(/^data:image\/png;base64,/, ""),
+      avatar.replace(/^data:image\/(png|jpg|jpeg);base64,/, ""),
       "base64"
     );
     const imagePath = `${Date.now()}-${Math.round(Math.random() * 1e9)}.png`;
@@ -21,9 +21,7 @@ class ActivateController {
 
     try {
       const jimResp = await Jimp.read(buffer);
-      jimResp
-        .resize(150, Jimp.AUTO)
-        .write(path.resolve(__dirname, `../storage/${imagePath}`));
+      jimResp.resize(150, Jimp.AUTO).write(`./storage/${imagePath}`);
     } catch (err) {
       res.status(500).json({ message: "Could not process the image" });
     }
