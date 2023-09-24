@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { logout } from "../../../http";
 import styles from "./Navigation.module.css";
+=======
+import styles from "./Navigation.module.css";
+import { logout } from "../../../http";
+>>>>>>> 2b5fc41245bcb7cbbe529e8fa3530d894a9659f6
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth } from "../../../store/authSlice";
 
@@ -19,6 +24,7 @@ const Navigation = () => {
     marginLeft: "10px",
   };
   const dispatch = useDispatch();
+<<<<<<< HEAD
   const { isAuth, user } = useSelector((state) => state.auth);
   async function logoutUser() {
     try {
@@ -29,6 +35,18 @@ const Navigation = () => {
     }
   }
 
+=======
+  const { isAuth, user } = useSelector((state) => state.authSlice);
+
+  const logoutUser = async () => {
+    try {
+      const { data } = await logout();
+      dispatch(setAuth(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+>>>>>>> 2b5fc41245bcb7cbbe529e8fa3530d894a9659f6
   return (
     <nav className={`${styles.navbar} container`}>
       <Link style={brandStyle} to="/">
@@ -48,7 +66,11 @@ const Navigation = () => {
             />
           </Link>
           <button className={styles.logoutButton} onClick={logoutUser}>
+<<<<<<< HEAD
             <img src="/images/logout.png" alt="logout" />
+=======
+            <img src="/images/arrow-forward.png" alt="logout" />
+>>>>>>> 2b5fc41245bcb7cbbe529e8fa3530d894a9659f6
           </button>
         </div>
       )}

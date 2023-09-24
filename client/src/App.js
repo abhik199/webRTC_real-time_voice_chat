@@ -82,7 +82,7 @@ const ProtectedRoute = ({ children }) => {
     <>
       {!isAuth ? (
         <Navigate to="/" />
-      ) : !user.activated ? (
+      ) : !user || !user.activated ? (
         <Navigate to="/activate" />
       ) : (
         children
