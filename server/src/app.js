@@ -9,6 +9,7 @@ import { PORT } from "../config/config.js";
 const app = express();
 
 app.use(cookieParser());
+app.use("/storage", express.static("storage"));
 app.use(express.json({ limit: "8mb" }));
 const corsOptions = {
   credentials: true,

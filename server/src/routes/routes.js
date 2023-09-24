@@ -8,5 +8,7 @@ const router = express.Router();
 router.post("/send-otp", authController.sendOtp);
 router.post("/verify-otp", authController.verifyOtp);
 router.post("/activate", authMiddleware, activateController.activate);
+router.get("/refresh", authController.refresh);
+router.post("/logout", authMiddleware, authController.logout);
 
 export default router;

@@ -5,6 +5,7 @@ export default async function (req, res, next) {
     if (!accessToken) {
       throw new Error();
     }
+
     const userData = await tokenService.verifyAccessToken(accessToken);
     if (!userData) {
       throw new Error();
